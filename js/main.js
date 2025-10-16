@@ -20,6 +20,41 @@
             nombre: "Happy Gilmore",
             precio: 16000
         },
+        { 
+            id: 5,
+            nombre: "Vikingos",
+            precio: 20000
+        },
+        { 
+            id: 6,
+            nombre: "Peaky Blinders",
+            precio: 25000
+        },
+        { 
+            id: 7,
+            nombre: "Better Call Saul",
+            precio: 19000
+        },
+        { 
+            id: 8,
+            nombre: "Dr House",
+            precio: 17599
+        },
+        { 
+            id: 9,
+            nombre: "La Huésped",
+            precio: 2287
+        },
+        { 
+            id: 10,
+            nombre: "Narcos",
+            precio: 23500
+        },
+        { 
+            id: 11,
+            nombre: "Rivaldale",
+            precio: 24000
+        },
         ]
 
             let cartPeliculas = []
@@ -51,25 +86,5 @@
             renderPeliculas(peliculas)
             addToCardButton()
 
-// let calcular = document.getElementById("calcular")
-// let restar = document.getElementById("boton-restar")
-// let sumar = document.getElementById("boton")
-// let counter = document.getElementById("counter")
-// let total = document.getElementById("total")
-// let contador = 2
-// // let costoEntrada = 15000;
-    
-//     sumar.onclick = () => {
-//         contador++
-//         counter.innerHTML = contador
-//     }
-//     restar.onclick = () => {
-//         if (contador > 0) contador--
-//         counter.innerHTML = contador
-//     }
 
-//     calcular.onclick = () => {
-//         let operacion = costoEntrada * contador
-//         total.innerHTML = "Total: $" + operacion.toLocaleString()
-//     }
 
