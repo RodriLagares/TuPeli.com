@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: visible;
 }
 
 body{
@@ -13,32 +12,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 50px;
+    height: auto;
     gap: 50px;
-}
-
-h1{
-    color: #facc15;
-    margin-bottom: 10px;
-}
-.texto-inicio{
-align-items: center;
-gap: 50px;
-}
-.entrada{
-    align-items: center;
-    gap: 10px;
-
-}   
-
-button{
-    background-color: #facc15;
-    font-size: 20px;
-    align-items: center;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
 }
 
 #peliculas-container{
@@ -48,4 +23,34 @@ button{
     justify-content: center;
 
 }
+h3{
+    color: #facc15;
+    margin-bottom: 10px;
+}
+.pelisContainers{
+align-items: center;
+gap: 100px;
+border-radius: 5px;
+}
+.entrada{
+    align-items: center;
+    gap: 20px;
+    font-size: 10px;
+}   
 
+button.agregarPeliculas{
+    background-color: #facc15;
+    font-size: 20px;
+    align-items: center;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bolder;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+}
