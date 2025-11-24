@@ -1,25 +1,24 @@
         let cartPeliculas = JSON.parse(localStorage.getItem("cartPeliculas")) || [];
         let peliculasContainer = document.getElementById("peliculas-container");
 
-const URL = "../db/data.json";
+const URL = "./db/data.json";
 
         async function obtenerPeliculas(){
             try{
-                const response = await fetch(URL)
+                const response = await fetch(URL);
+
                 if (!response.ok){
-                    throw new Error (`Error HTTP ${response.status}`)
+                    throw new Error (`Error HTTP ${response.status}`);
                 }
-                const data = await response.json()
-                renderPeliculas(data)
-                activarBotones(data)
+                const data = await response.json();
+                renderPeliculas(data);
+                activarBotones(data);
             } catch(error){
-                console.log("Error al cargar las peliculas", error)
-                peliculasContainer.innerHTML = "<h2>No se puedo cargar la pelicula. Intentalo mas tarde</h2>"
-            } finally{
-                mostrarFeedback(`Carga finalizada`)
-            }
-            
+                peliculasContainer.innerHTML = "<h2>No se pudieron cargar las peliculas</h2>";
+                console.log(error);
+            } 
         }
+        obtenerPeliculas()
 
 function renderPeliculas(listaPeliculas) {
     listaPeliculas.forEach((pelicula) => {
@@ -34,29 +33,40 @@ function renderPeliculas(listaPeliculas) {
 
 
 function activarBotones(peliculas) {
-    const botonesAgregar = document.querySelectorAll(".agregarPeliculas");
-
-    botonesAgregar.forEach((boton) => {
+    const botones = document.querySelectorAll(".agregarPeliculas");
+    botones.forEach((boton) => {
     boton.addEventListener("click", (e) => {
-    const peliculaID = e.currentTarget.getAttribute("data-id");
-    agregarCarrito(peliculas,peliculaID)
+    const ID = Number(e.currentTarget.getAttribute("data-id"));
+    agregarCarrito(peliculas,ID);
 
     });
     });
 }
 
-function agregarCarrito(peliculas,ID){
-    const peliculaSeleccionada = peliculas.find((p) => p.id == ID)
-    if (peliculaSeleccionada){
-        cartPeliculas.push(peliculaSeleccionada)
-        localStorage.setItem("cartPeliculas", JSON.stringify(cartPeliculas))
-        if (typeof mostrarFeedback === `function` ){
-            mostrarFeedback(`${peliculaSeleccionada.nombre} Agregado correctamente`)
-        } 
-}
+
+function agregarCarrito(peliculas,id){
+    const existe = cartPeliculas.find((p) => p.id === id);
+    if (existe){
+    existe.cantidad++;
+    } else {
+        const peli = peliculas.find((p) => p.id === id);
+        cartPeliculas.push({ 
+        id: peli.id,
+        nombre: peli.nombre,
+        precio: peli.precio,
+        cantidad: 1
+        });
     }
+    localStorage.setItem("cartPeliculas", JSON.stringify(cartPeliculas));
+    Toastify({
+        text: "Producto añadido",
+        duration: 1500,
+        gravity: "top",
+        position: "right",
+    }).showToast();
 
-        obtenerPeliculas()
+}
+
 
 
 

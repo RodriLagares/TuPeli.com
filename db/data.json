@@ -53,6 +53,11 @@
             "id": 11,
             "nombre": "Rivaldale",
             "precio": 24000
+        },
+        { 
+            "id": 12,
+            "nombre": "Stranger Things",
+            "precio": 18954
         }
     ]
     
