@@ -58,7 +58,7 @@ let finalizarCompra = document.getElementById("comprar");
     }   
     Swal.fire({
         title: "¿Confirmar compra?",
-        text: `Total a pagar: ${totalContainer.textContent}`,
+        text: `${totalContainer.textContent}`,
         icon: "question",
         showCancelButton: true,
         confirmButtonText: "Pagar",
